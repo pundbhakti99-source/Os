@@ -981,6 +981,7 @@ int main(void) {
         }
     ]
 },
+    ];
     const vivaNotes = {
 
     p1: {
