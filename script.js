@@ -986,6 +986,7 @@ int main(void) {
 
     p1: {
         heading: "Viva Notes – Address Book using Shell Script",
+        explanation: "This is an Address Book Management System developed using Bash Shell Programming. It stores contact details in a text file named addressbook.txt. It provides six operations: Create, View, Insert, Delete, Modify and Exit. I have used functions for each operation, a while loop to display the menu continuously, and a case statement to select the user's choice. I used touch to create a file, cat to display records, grep to search records and sed to delete or modify records.",
         concepts: [
             ["Shell", "A command interpreter that lets users interact with the operating system."],
             ["Shell script", "A file containing a sequence of shell commands executed by the shell."],
@@ -1008,6 +1009,7 @@ int main(void) {
 
     p2: {
         heading: "Viva Notes – Process Creation using fork()",
+        explanation: "This program demonstrates Process Creation using the fork() system call in C. It creates two processes: a parent process and a child process. The child process sorts the given array in ascending order, while the parent process sorts the array in descending order. I have used fork() to create a child process, getpid() to get the process ID, getppid() to get the parent process ID, and wait() to make the parent wait until the child process finishes.",
         concepts: [
             ["Process", "A program that is currently executing."],
             ["fork()", "A system call that creates a new process by duplicating the calling process."],
@@ -1030,6 +1032,8 @@ int main(void) {
 
     p3: {
         heading: "Viva Notes – Producer-Consumer Problem",
+        explanation: "This program demonstrates the Producer-Consumer Problem using thread synchronization in C. It uses a shared buffer of size 5. The producer generates items and stores them in the buffer, while the consumer removes and consumes those items. I have used two semaphores, empty and full, to control the buffer capacity, and a mutex lock to protect the critical section. I have used pthread_create() to create threads and pthread_join() to wait for their completion.",
+        
         concepts: [
             ["Producer", "A thread or process that creates data and places it in a shared buffer."],
             ["Consumer", "A thread or process that removes and uses data from the buffer."],
@@ -1052,6 +1056,8 @@ int main(void) {
 
     p3b: {
         heading: "Viva Notes – Reader-Writer Problem",
+        explanation: "This program demonstrates the Reader-Writer Problem using threads and mutex locks in C. Multiple readers can access the shared resource simultaneously, but a writer requires exclusive access. I have used a variable called readcount to track the number of active readers. I have used mutex locks to protect readcount and control access to the shared resource. The first reader locks the writer semaphore, and the last reader releases it.",
+        
         concepts: [
             ["Reader", "A thread that reads shared data without changing it."],
             ["Writer", "A thread that modifies shared data."],
@@ -1070,6 +1076,8 @@ int main(void) {
 
     p4: {
         heading: "Viva Notes – Dining Philosophers Problem",
+        explanation: "This program demonstrates the Dining Philosophers Problem using threads and semaphores in C. It consists of five philosophers and five chopsticks. Each philosopher thinks and then tries to pick up two chopsticks to eat. I have used semaphores to control access to chopsticks and a room semaphore initialized to four to prevent deadlock. After eating, each philosopher releases both chopsticks so that other philosophers can use them.",
+        
         concepts: [
             ["Dining Philosophers", "A classic synchronization problem used to explain resource sharing and deadlock."],
             ["Semaphore", "Controls access to each chopstick in this program."],
@@ -1089,6 +1097,8 @@ int main(void) {
 
     p5: {
         heading: "Viva Notes – Banker's Algorithm",
+        explanation: "This program implements Banker's Algorithm for deadlock avoidance in C. It takes the Allocation Matrix, Maximum Matrix and Available Resources as input. It calculates the Need Matrix using the formula Need equals Maximum minus Allocation. Then it checks whether the processes can execute safely with the available resources. I have used Work and Finish arrays to find a safe sequence. Finally, the program displays whether the system is in a safe or unsafe state.",
+        
         concepts: [
             ["Deadlock", "A condition where processes wait indefinitely for resources held by one another."],
             ["Banker's Algorithm", "A deadlock-avoidance algorithm that grants resources only when the resulting state is safe."],
@@ -1111,6 +1121,8 @@ int main(void) {
 
     p6: {
         heading: "Viva Notes – Inter-Process Communication using FIFO",
+        explanation: "This program demonstrates Inter-Process Communication using Named Pipes, also called FIFO, in C. It consists of two programs: a client and a server. The client sends a message to the server through the first FIFO, and the server receives the message and sends a response through the second FIFO. I have used mkfifo() to create named pipes, open() to open them, read() to receive data, write() to send data and close() to close the files.",
+        
         concepts: [
             ["IPC", "Inter-Process Communication allows processes to exchange data."],
             ["FIFO", "A named pipe used for communication between processes, including unrelated processes."],
@@ -1132,6 +1144,8 @@ int main(void) {
 
     p7: {
         heading: "Viva Notes – IPC using Unnamed Pipes",
+        explanation: "This program demonstrates Inter-Process Communication between parent and child processes using Unnamed Pipes in C. The parent process accepts the pathname of a file and sends it to the child process through the first pipe. The child process opens the file, reads its contents and sends them back to the parent through the second pipe. I have used pipe() to create pipes, fork() to create a child process, read() and write() for communication, and wait() to synchronize the processes.",
+        
         concepts: [
             ["Pipe", "A unidirectional communication channel used to transfer data between processes."],
             ["pipe()", "Creates a pipe and returns two file descriptors."],
@@ -1154,6 +1168,9 @@ int main(void) {
 
     p8: {
         heading: "Viva Notes – Disk Scheduling Algorithms",
+
+        explanation: "This practical demonstrates three Disk Scheduling Algorithms: SSTF, SCAN and C-LOOK in C. These algorithms are used by the operating system to decide the order of disk requests. SSTF selects the nearest disk request from the current head position. SCAN moves the disk head in one direction, reaches the disk end and then reverses its direction. C-LOOK services requests in one direction and then jumps to the first pending request on the other side. I have used sorting and absolute difference calculations to find the total head movement.",
+        
         concepts: [
             ["Disk scheduling", "The method used by the operating system to decide the order of disk I/O requests."],
             ["Seek time", "Time taken by the disk head to move to the required track."],
@@ -1248,6 +1265,9 @@ async function copyText(text, button, originalText) {
 function getVivaText(notes) {
     let text = notes.heading + "\n\n";
 
+    text += "PROGRAM EXPLANATION\n";
+    text += notes.explanation + "\n\n";
+
     text += "IMPORTANT CONCEPTS\n";
 
     notes.concepts.forEach(([term, explanation]) => {
@@ -1340,6 +1360,62 @@ function showPractical(id) {
 
         box.append(head, pre);
         content.appendChild(box);
+        // ==========================================
+// PROGRAM EXPLANATION SECTION
+// ==========================================
+
+const explanationBox = document.createElement("div");
+
+explanationBox.style.cssText = `
+    background:#f0efff;
+    border:1px solid #dedaff;
+    border-radius:12px;
+    padding:15px;
+    margin:15px 0;
+`;
+
+const explanationTitle = document.createElement("h3");
+
+explanationTitle.textContent = "Program Explanation";
+explanationTitle.style.cssText = `
+    margin:0 0 10px;
+    color:#4337a8;
+`;
+
+const explanationText = document.createElement("p");
+
+explanationText.textContent = notes.explanation;
+
+explanationText.style.cssText = `
+    margin:0;
+    color:#33384d;
+    line-height:1.7;
+    text-align:justify;
+`;
+
+const copyExplanation = document.createElement("button");
+
+copyExplanation.className = "copy";
+copyExplanation.type = "button";
+copyExplanation.textContent = "Copy Explanation";
+
+copyExplanation.style.marginTop = "12px";
+
+copyExplanation.addEventListener("click", () => {
+    copyText(
+        notes.explanation,
+        copyExplanation,
+        "Copy Explanation"
+    );
+});
+
+explanationBox.append(
+    explanationTitle,
+    explanationText,
+    copyExplanation
+);
+
+section.appendChild(explanationBox);
     });
 
     // DISPLAY VIVA NOTES
