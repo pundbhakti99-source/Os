@@ -1360,62 +1360,6 @@ function showPractical(id) {
 
         box.append(head, pre);
         content.appendChild(box);
-        // ==========================================
-// PROGRAM EXPLANATION SECTION
-// ==========================================
-
-const explanationBox = document.createElement("div");
-
-explanationBox.style.cssText = `
-    background:#f0efff;
-    border:1px solid #dedaff;
-    border-radius:12px;
-    padding:15px;
-    margin:15px 0;
-`;
-
-const explanationTitle = document.createElement("h3");
-
-explanationTitle.textContent = "Program Explanation";
-explanationTitle.style.cssText = `
-    margin:0 0 10px;
-    color:#4337a8;
-`;
-
-const explanationText = document.createElement("p");
-
-explanationText.textContent = notes.explanation;
-
-explanationText.style.cssText = `
-    margin:0;
-    color:#33384d;
-    line-height:1.7;
-    text-align:justify;
-`;
-
-const copyExplanation = document.createElement("button");
-
-copyExplanation.className = "copy";
-copyExplanation.type = "button";
-copyExplanation.textContent = "Copy Explanation";
-
-copyExplanation.style.marginTop = "12px";
-
-copyExplanation.addEventListener("click", () => {
-    copyText(
-        notes.explanation,
-        copyExplanation,
-        "Copy Explanation"
-    );
-});
-
-explanationBox.append(
-    explanationTitle,
-    explanationText,
-    copyExplanation
-);
-
-section.appendChild(explanationBox);
     });
 
     // DISPLAY VIVA NOTES
